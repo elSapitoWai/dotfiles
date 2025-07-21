@@ -4,3 +4,4 @@ if status is-interactive
 end
 
 oh-my-posh init fish --config ~/.config/omp/base.omp.toml | source
+thefuck --alias | source
