@@ -1,0 +1,65 @@
+version = 3
+
+[upgrade]
+  source = 'cdn'
+  interval = '168h'
+  auto = false
+  notice = false
+
+[[blocks]]
+  type = 'prompt'
+  alignment = 'left'
+  newline = true
+
+  [[blocks.segments]]
+    template = '{{.Icon}} '
+    foreground = 'p:alt-accent'
+    type = 'os'
+    style = 'plain'
+
+  [[blocks.segments]]
+    template = ' {{ .UserName }} @'
+    foreground = 'p:accent'
+    type = 'session'
+    style = 'plain'
+
+  [[blocks.segments]]
+    type = 'path'
+    style = 'powerline'
+    foreground = 'p:foreground'
+
+    [blocks.segments.properties]
+    style = 'full'
+
+[[blocks]]
+  type = 'prompt'
+  alignment = 'left'
+  newline = true
+
+
+  [[blocks.segments]]
+    type = 'text'
+    style = 'powerline'
+    foreground = 'p:bright'
+    foreground_templates = [
+      "{{if gt .Code 0}}p:error{{end}}"
+    ] 
+    template = '❯ '
+
+[secondary_prompt]
+  foreground = 'p:bright'
+  template = '❯❯ '
+
+[transient_prompt]
+  foreground = 'p:accent'
+  template = '❯ '
+
+
+[palette]
+accent = '#DB8445'
+foreground = '#486074'
+background = '#100B09'
+bright = '#d4d3e5'
+alt-accent = '#561F22'
+alt-background = '#281F26'
+error = '#fc0266'
