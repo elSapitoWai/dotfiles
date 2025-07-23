@@ -3,7 +3,7 @@ if status is-interactive
     alias ls="eza -a -T -L=2 -l --icons=always"
 end
 
-set -U fish-greeting ""
+set -U fish_greeting ""
 
 oh-my-posh init fish --config ~/.config/omp/base.omp.toml | source
 thefuck --alias | source
