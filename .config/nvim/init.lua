@@ -12,6 +12,9 @@ local autocmd = vim.api.nvim_create_autocmd
 
 autocmd('LspAttach', {
     callback = function(e)
+        vim.api.nvim_buf_set_option(e.buf, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
+        vim.api.nvim_buf_set_option(e.buf, 'tagfunc', 'v:lua.vim.lsp.tagfunc')
+
         local opts = { buffer = e.buf }
         vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, { buffer = e.buf, desc = "Go to definition" })
         vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end, { buffer = e.buf, desc = "Hover" })
@@ -25,3 +28,13 @@ autocmd('LspAttach', {
         vim.keymap.set("n", "]d", function() vim.diagnostic.goto_prev() end, opts)
     end
 })
+
+
+require('lspconfig')['ts_ls'].setup {
+  on_attach = function(client, bufnr) 
+    vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
+  end,
+  flags = {
+    debounce_text_changes = 150,
+  }
+}
