@@ -38,3 +38,5 @@ require('lspconfig')['ts_ls'].setup {
     debounce_text_changes = 150,
   }
 }
+
+require('lspconfig')['pyright'].setup{}
