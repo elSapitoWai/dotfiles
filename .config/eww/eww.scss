@@ -1,0 +1,31 @@
+$accent: #DB8445;
+$foreground: #486074;
+$background: #100B09;
+$bright: #d4d3e5;
+$alt-accent: #561F22;
+$alt-background: #281F26;
+$error: #fc0266;
+
+.notifications {
+  min-height: 0px;
+  background-color: transparent;
+}
+
+.notif {
+  background-image: none;
+  background-color: $background;
+  color: white;
+  margin-bottom: 10px;
+  padding: 10px;
+  box-shadow: none;
+  text-shadow: none;
+  border-radius: 10px;
+  border-width: 2;
+  border-color: $accent;
+}
+
+.notif image {
+  box-shadow: none;
+  padding-right: 10px;
+}
+
